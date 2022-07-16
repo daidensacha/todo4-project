@@ -67,12 +67,6 @@ function addNewTodo() {
     editBtn.classList += 'far fa-edit edit btn btn-edit';
     deleteBtn.classList += 'far fa-times-circle delete btn btn-delete';
 
-    // Add innerHTML
-    // editBtn.innerHTML = `<i class="far fa-edit edit btn-edit"></i>`;
-    // deleteBtn.innerHTML = `<i class="far fa-times-circle delete btn-delete"></i>`;
-
-    // editBtn.innerHTML = 'Edit';
-    // deleteBtn.innerHTML = 'Delete';
 
     // Append elements -
     todoList.appendChild(listItem);
@@ -122,17 +116,14 @@ function addNewTodo() {
     // CHECKBOX EVENT LISTENER
     checkbox.addEventListener('change', (e) => {
       const input = e.target.nextElementSibling;
-      console.log(e.target.checked);
       todo.completed = e.target.checked;
-      console.log(todo.completed);
-
-
+      localStorage.setItem('todos', JSON.stringify(todos));
       if (!todo.completed) {
         input.classList.remove('completed');
       } else {
         input.classList.add('completed');
       }
-      localStorage.setItem('todos', JSON.stringify(todos));
+      // localStorage.setItem('todos', JSON.stringify(todos));
     });
 
   });
