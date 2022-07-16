@@ -42,8 +42,9 @@ function addNewTodo() {
   //  Empty list
   todoList.innerHTML = '';
 
-  // For each loop to run for each todo line 43 - 113
-  todos.forEach(todo => {
+  // For each loop to run for each todo
+  // SOrt items - newest first
+  todos.sort((a, b) => b.createdAt - a.createdAt).forEach(todo => {
     // Create elements
     const listItem = document.createElement('li');
     const checkbox = document.createElement('input');
@@ -84,6 +85,7 @@ function addNewTodo() {
 
     // DELETE EVENT LISTENER
     deleteBtn.addEventListener('click', (e) => {
+      // Use filter to remove the item from the array
       todos = todos.filter(t => t != todo);
       localStorage.setItem('todos', JSON.stringify(todos));
       addNewTodo();
