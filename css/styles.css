@@ -118,6 +118,12 @@ input[type="checkbox"] {
 
 }
 
+input[type="checkbox"]:checked ~ input[class="content"] {
+  font-style: italic;
+  text-decoration: line-through;
+  color: #a7b7bc;
+}
+
 .list-item input.content {
   flex: 1 1 0%;
   padding: .5rem;
@@ -171,24 +177,16 @@ span.btn {
   display: inline-block;
 }
 
-
-
 span:hover {
   opacity: 0.8;
 }
 
-span.delete {
-  /* background-color: var( --btn-danger); */
+.btn-delete {
   color: var(--btn-delete);
 }
 
-span.edit {
-  /* background-color: #var(--btn-bg-edit); */
-  /* color: var(--btn-edit); */
-}
 
 .btn-edit {
-  /* background-color: var(--btn-bg-edit) */
   color: var(--btn-edit);
 
 }
