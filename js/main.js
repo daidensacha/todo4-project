@@ -42,14 +42,17 @@ function addNewTodo() {
   //  Empty list
   todoList.innerHTML = '';
 
-  // For each loop to run for each todo line 43 - 113
-  todos.forEach(todo => {
+  // For each loop to run for each todo
+  // SOrt items - newest first
+  todos.sort((a, b) => b.createdAt - a.createdAt).forEach(todo => {
     // Create elements
     const listItem = document.createElement('li');
     const checkbox = document.createElement('input');
     const content = document.createElement('input');
-    const editBtn = document.createElement('button');
-    const deleteBtn = document.createElement('button');
+    const editBtn = document.createElement('span');
+    const deleteBtn = document.createElement('span');
+    // const editBtn = document.createElement('button');
+    // const deleteBtn = document.createElement('button');
 
     checkbox.type = 'checkbox';
     checkbox.checked = todo.completed;
@@ -61,12 +64,15 @@ function addNewTodo() {
     listItem.classList += 'list-item';
     checkbox.classList += 'check';
     content.classList += 'content';
-    editBtn.classList += 'edit btn-bg-edit';
-    deleteBtn.classList += 'delete';
+    editBtn.classList += 'far fa-edit edit btn btn-edit';
+    deleteBtn.classList += 'far fa-times-circle delete btn btn-delete';
 
     // Add innerHTML
-    editBtn.innerHTML = 'Edit';
-    deleteBtn.innerHTML = 'Delete';
+    // editBtn.innerHTML = `<i class="far fa-edit edit btn-edit"></i>`;
+    // deleteBtn.innerHTML = `<i class="far fa-times-circle delete btn-delete"></i>`;
+
+    // editBtn.innerHTML = 'Edit';
+    // deleteBtn.innerHTML = 'Delete';
 
     // Append elements -
     todoList.appendChild(listItem);
@@ -84,6 +90,7 @@ function addNewTodo() {
 
     // DELETE EVENT LISTENER
     deleteBtn.addEventListener('click', (e) => {
+      // Use filter to remove the item from the array
       todos = todos.filter(t => t != todo);
       localStorage.setItem('todos', JSON.stringify(todos));
       addNewTodo();
@@ -100,12 +107,12 @@ function addNewTodo() {
       if (input.readOnly) {
         input.removeAttribute('readonly');
         input.focus();
-        editButton.classList.replace('btn-bg-edit', 'btn-bg-save');
-        editButton.innerHTML = 'Save';
+        editButton.classList.remove('far','fa-edit','edit','btn-edit');
+        editButton.classList.add('far','fa-check-circle','edit','btn-save');
       } else {
         input.setAttribute('readonly', true);
-        editButton.classList.replace('btn-bg-save', 'btn-bg-edit');
-        editButton.innerHTML = 'Edit';
+        editButton.classList.remove('far','fa-check-circle','edit','btn-save');
+        editButton.classList.add('far','fa-edit','edit','btn-edit');
       }
       todo.todoContent = input.value;
       localStorage.setItem('todos', JSON.stringify(todos));
@@ -115,12 +122,17 @@ function addNewTodo() {
     // CHECKBOX EVENT LISTENER
     checkbox.addEventListener('change', (e) => {
       const input = e.target.nextElementSibling;
+      console.log(e.target.checked);
       todo.completed = e.target.checked;
-      localStorage.setItem('todos', JSON.stringify(todos));
+      console.log(todo.completed);
 
-      todo.completed ?
-        input.classList.remove('completed') :
+
+      if (!todo.completed) {
+        input.classList.remove('completed');
+      } else {
         input.classList.add('completed');
+      }
+      localStorage.setItem('todos', JSON.stringify(todos));
     });
 
   });

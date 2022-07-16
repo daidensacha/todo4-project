@@ -1,8 +1,12 @@
 :root {
   --primary: #04a998;
-  --btn-danger: #742007;
-  --btn-bg-save: #026702;
-  --btn-bg-edit: #1c4490;
+  /* --btn-danger: #742007; */
+  /* --btn-bg-save: #026702; */
+  /* --btn-bg-edit: #1c4490; */
+  --btn-delete: #9b4f36;
+  --btn-edit: #4164a5;
+  --btn-save: #026702;
+
   --btn-color: #dddcdc;
   --btn-border: #585858;
   --input-border: #585858;
@@ -20,6 +24,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  color: #18459a;
 }
 
 body {
@@ -116,9 +121,11 @@ input[type="checkbox"] {
 .list-item input.content {
   flex: 1 1 0%;
   padding: .5rem;
-  border: 1px solid var(--input-border);
+  /* border: 1px solid var(--input-border); */
+  border: 1px solid transparent;
   border-radius: .3rem;
-  background-color: #323232;
+  /* background-color: #323232; */
+  background-color: #212121;
   color: var(--primary);
 }
 
@@ -142,48 +149,59 @@ input[type="checkbox"] {
 }
 
 .list-item input[readonly]:focus {
-  border: 1px solid var(--input-border);
+  /* border: 1px solid var(--input-border); */
+  border: 1px solid transparent;
 }
 
-button, input {
+input {
   padding: .5rem;
 }
 
-button {
-  margin-left: .5rem;
-  min-width: 3.8rem;
-  border: 1px solid var(--btn-border);
-  transition: all .3s
+.far, .fas {
+  font-size: 1.5rem;
 }
 
-button:hover {
+span.btn {
+  margin-left: .5rem;
+  /* min-width: 3.8rem; */
+  /* border: 1px solid var(--btn-border); */
+  transition: all .3s;
+  border-radius: .3rem;
+  font-size: 1.5rem;
+  display: inline-block;
+}
+
+
+
+span:hover {
   opacity: 0.8;
 }
 
-button.delete {
-  background-color: var( --btn-danger);
-  color: var(--btn-color);
+span.delete {
+  /* background-color: var( --btn-danger); */
+  color: var(--btn-delete);
 }
 
-button.edit {
+span.edit {
   /* background-color: #var(--btn-bg-edit); */
-  color: #efefef;
+  /* color: var(--btn-edit); */
 }
 
-.btn-bg-edit {
-  background-color: var(--btn-bg-edit)
+.btn-edit {
+  /* background-color: var(--btn-bg-edit) */
+  color: var(--btn-edit);
 
 }
 
-.btn-bg-save {
-  background-color: var(--btn-bg-save)
+.btn-save {
+  color: var(--btn-save)
 }
 
 /* From uiverse.io by @ke1221 */
 .check {
   position: relative;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   border-radius: 2px;
   appearance: none;
   background-color: #323232;
