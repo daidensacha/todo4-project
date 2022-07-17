@@ -1,30 +1,91 @@
 :root {
   --primary: #04a998;
-  /* --btn-danger: #742007; */
-  /* --btn-bg-save: #026702; */
-  /* --btn-bg-edit: #1c4490; */
+
   --btn-delete: #9b4f36;
   --btn-edit: #4164a5;
   --btn-save: #026702;
 
   --btn-color: #dddcdc;
   --btn-border: #585858;
-  --input-border: #585858;
+
+  /* Neumorphism colors */
+  --color-primary: #8fc914;
+  --bg-color-primary: #eee;
+  /* neumorphism outset */
+  --nm-outset-border-radius: 5px;
+  --nm-outset-background: #efefef;
+  --nm-outset-box-shadow: 5px 5px 6px #e1e1e1,
+                          -5px -5px 6px #fdfdfd;
+  /* Neumorphism inset */
+  --nm-inset-border-radius: 5px;
+  --nm-inset-background: #efefef;
+  --nm-inset-box-shadow: inset 5px 5px 6px #e1e1e1,
+                    inset -5px -5px 6px #fdfdfd;
+
+  --input-border-color: #585858;
+  --border-transparent: transparent;
+
+  --h1-color: #7EB012;
+  --alert-color: #D6C00B;
+
+  --focus-bg-color: #e7e7e7;
+  --input-bg-color-primary: #ecebeb2f;
+  --input-todo-border: 1px ridge #fffefe;
+  --input-todo-border-focus: 1px solid #8fc914;
+  --listitem-input-border: 1px ridge #fffefe73;
+  --listitem-input-border-transparent: 1px solid #efefef00;
+  --checkbox-bg-color: #efefef;
+/*  Input box shadow  */
+  --input-webkit-box-shadow: inset 0px 0px 15px -6px rgba(0,0,0,0.8);
+  --input-moz-box-shadow: inset 0px 0px 15px -6px rgba(0,0,0,0.8);
+  --input-box-shadow: inset 2px 2px 10px -6px rgba(0,0,0,0.8)!important;
+
 }
 
-.b-red {
-  border: 1px solid red;
-}
+[data-theme="dark"] {
+  --primary: #04a998;
 
-.b-green {
-  border: 1px solid green;
+  --btn-delete: #9b4f36;
+  --btn-edit: #4164a5;
+  --btn-save: #026702;
+
+  --btn-color: #dddcdc;
+  --btn-border-color: #585858;
+
+  /* Neumorphism colors */
+  --color-primary: #04a998;
+  --bg-color-primary: #212121;
+  /* neumorphism outset */
+  --nm-outset-border-radius: 9px;
+  --nm-outset-background: #212121;
+  --nm-outset-box-shadow: 8px 8px 12px #151515,
+                  -8px -8px 12px #2d2d2d;
+  /* Neumorphism inset */
+  --nm-inset-border-radius: 5px;
+  --nm-inset-background: #212121;
+  --nm-inset-box-shadow: inset 6px 6px 3px #161616,
+                    inset -6px -6px 3px #2c2c2c;
+
+  --input-border-color: #585858;
+  --border-transparent: transparent;
+
+  --h1-color: #34b9ac;
+  --alert-color: #D6C00B;
+/*  create dark color  */
+  --focus-bg-color: #212121;
+  --input-bg-color-primary: ;
+  --input-todo-border: 1px solid #585858;
+  --input-todo-border-focus: 1px solid #04a998;
+  --listitem-input-border: 1px solid #efefef00;
+  --checkbox-bg-color: #323232;
+/*   --listitem-input-border-transparent: 1px solid red; */
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  color: #18459a;
+  color: var( --color-primary);
 }
 
 body {
@@ -33,20 +94,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #212121;;
+  background-color: var(--bg-color-primary);
 }
 
 h1 {
   font-size: 3rem;
   font-family: "Roboto", sans-serif;
-  color: rgb(52, 185, 172);
+  color: var(--h1-color);
   text-align: center;
 }
 
 .alert {
   font-family: "Roboto", sans-serif;
   display: inline;
-  color: #D6C00B;
+  color: var(--alert-color);
   text-align: center;
   position: absolute;
   bottom: -.8rem;
@@ -55,39 +116,40 @@ h1 {
 }
 
 .container {
-  padding: 2rem;
-  border-radius: 9px;
-  background: #212121;
-  box-shadow:  8px 8px 12px #151515,
-                -8px -8px 12px #2d2d2d;
+  padding: 1rem 2rem;
+  border-radius: var(--nm-outset-border-radius);
+  background: var(--nm-outset-background);
+  box-shadow:  var(--nm-outset-box-shadow);
+  position: relative;
 }
 
 #form {
   margin: 1.5rem 0 1.5rem;
   padding: 1rem;
   position: relative;
-  /* min-height: 3.5rem; */
   min-height: 2em;
-  border-radius: 9px;
-  background: #212121;
-  box-shadow:  8px 8px 12px #151515,
-                -8px -8px 12px #2d2d2d;
+  border-radius: var(--nm-outset-border-radius);
+  background: var(--nm-outset-background);
+  box-shadow:  var(--nm-outset-box-shadow);
 }
 
 #todocontent {
   display: block;
   width: 100%;
-  padding: .5rem;
-  border: 1px solid var(--input-border);
-  border-radius: .3rem;
-  /* margin-bottom: 0.8rem; */
-  background-color:#323232;
-  color: var(--primary);
+  padding: 1rem 1.5rem;
+  border: var(--input-todo-border);
+  border-radius: .5rem;
+  background-color:var(--input-bg-color-primary);
+  color: var(--color-primary);
 }
 
 input#todocontent:focus {
   outline: none;
-  border: 1px solid var(--primary);
+  background-color: var(--focus-bg-color);
+  border: var(--input-todo-border-focus);
+  -webkit-box-shadow: var(--input-webkit-box-shadow);
+  -moz-box-shadow: var(--input-moz-box-shadow);
+  box-shadow: var(--input-box-shadow);
 }
 
 #todo-list {
@@ -104,10 +166,9 @@ input#todocontent:focus {
   padding: 1rem;
   margin-bottom: 1rem;
   font-size: 1.2rem;
-  border-radius: 5px;
-  background: #212121;
-  box-shadow: inset 6px 6px 3px #161616,
-              inset -6px -6px 3px #2c2c2c;
+  border-radius: var(--nm-inset-border-radius);
+  background: var(--nm-inset-background);
+  box-shadow: var(--nm-inset-box-shadow);
 }
 input, button {
   font-size: 1.1rem;
@@ -115,7 +176,6 @@ input, button {
 
 input[type="checkbox"] {
   margin-right: .5rem;
-
 }
 
 input[type="checkbox"]:checked ~ input[class="content"] {
@@ -126,13 +186,11 @@ input[type="checkbox"]:checked ~ input[class="content"] {
 
 .list-item input.content {
   flex: 1 1 0%;
-  padding: .5rem;
-  /* border: 1px solid var(--input-border); */
-  border: 1px solid transparent;
+  padding: .2rem;
+  border: var(--listitem-input-border);
   border-radius: .3rem;
-  /* background-color: #323232; */
-  background-color: #212121;
-  color: var(--primary);
+  background-color: var(--bg-color-primary);
+  color: var(--color-primary);
 }
 
 .list-item input.content.completed {
@@ -143,20 +201,26 @@ input[type="checkbox"]:checked ~ input[class="content"] {
 
 .list-item input.content:focus {
   outline: none;
-  border: 1px solid var(--primary);
+  border: 1px solid var(--color-primary);
 }
 
 .list-item input:not([type="text"][readonly]) {
-  border: 1px solid var(--primary);
+  border: 1px solid var(--color-primary);
 }
 
 .list-item input:not([type="text"][readonly]):focus {
-  border: 1px solid var(--primary);
+  border: 1px solid var(--color-primary);
+  -webkit-box-shadow: var(--input-webkit-box-shadow);
+  -moz-box-shadow: var(--input-moz-box-shadow);
+  box-shadow: var(--input-box-shadow);
+}
+
+.list-item input[readonly] {
+  border: var(--listitem-input-border-transparent);
 }
 
 .list-item input[readonly]:focus {
-  /* border: 1px solid var(--input-border); */
-  border: 1px solid transparent;
+  border: var(--listitem-input-border-transparent);
 }
 
 input {
@@ -169,8 +233,6 @@ input {
 
 span.btn {
   margin-left: .5rem;
-  /* min-width: 3.8rem; */
-  /* border: 1px solid var(--btn-border); */
   transition: all .3s;
   border-radius: .3rem;
   font-size: 1.5rem;
@@ -202,7 +264,7 @@ span:hover {
   height: 20px;
   border-radius: 2px;
   appearance: none;
-  background-color: #323232;
+  background-color: var(--checkbox-bg-color);
   transition: all .3s;
  }
 
@@ -249,4 +311,74 @@ span:hover {
    transform: scale(1) rotateY(360deg);
   }
  }
+
+
+/* Toggle switch */
+/*Simple css to style it like a toggle switch*/
+/* https://dev.to/ananyaneogi/create-a-dark-light-mode-switch-with-css-variables-34l8 */
+
+.toggle {
+  margin-bottom: 2rem;
+}
+
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+em {
+  margin-left: 10px;
+  font-size: 1rem;
+  color: var(--primary);
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+  margin-right: 1rem;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+}
+
+input:checked + .slider {
+  background-color: #66bb6a;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
 
