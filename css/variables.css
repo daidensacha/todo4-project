@@ -1,0 +1,75 @@
+root {
+  --primary: #04a998;
+
+  --btn-delete: #9b4f36;
+  --btn-edit: #4164a5;
+  --btn-save: #026702;
+
+  --btn-color: #dddcdc;
+  --btn-border: #585858;
+
+  /* Neumorphism colors */
+  --color-primary: #04a998;
+  --bg-primary: #212121;
+  /* neumorphism outset */
+  --nmdo-border-radius: 9px;
+  --nmdo-background: #212121;
+  --nmdo-box-shadow: 8px 8px 12px #151515,
+                  -8px -8px 12px #2d2d2d;
+  /* Neumorphism inset */
+  --nmdi-border-radius: 5px;
+  --nmdi-background: #212121;
+  --nmdi-box-shadow: inset 6px 6px 3px #161616,
+                    inset -6px -6px 3px #2c2c2c;
+
+  --nmd-input-border: #585858;
+  --nmd-border-transparent: transparent;
+
+  --nmd-h1-color: #34b9ac;
+  --nmd-alert: #D6C00B;
+
+}
+/*  dark themme */
+root {
+  --primary: #04a998;
+
+  --btn-delete: #9b4f36;
+  --btn-edit: #4164a5;
+  --btn-save: #026702;
+
+  --btn-color: #dddcdc;
+  --btn-border-color: #585858;
+
+  /* Neumorphism colors */
+  --color-primary: #04a998;
+  --bg-primary: #212121;
+  /* neumorphism outset */
+  --nm-outset-b-radius: 9px;
+  --nm-outset-background: #212121;
+  --nm-outset-box-shadow: 8px 8px 12px #151515,
+                  -8px -8px 12px #2d2d2d;
+  /* Neumorphism inset */
+  --nm-inset-border-radius: 5px;
+  --nm-inset-background: #212121;
+  --nm-inset-box-shadow: inset 6px 6px 3px #161616,
+                    inset -6px -6px 3px #2c2c2c;
+
+  --input-border: #585858;
+  --border-transparent: transparent;
+
+  --h1-color: #34b9ac;
+  --alert-color: #D6C00B;
+
+}
+
+[data-theme="dark"] {
+  --primary: #8fc914;
+
+  --btn-delete: #9b4f36;
+  --btn-edit: #4164a5;
+  --btn-save: #026702;
+
+  --btn-color: #dddcdc;
+  --btn-border: #585858;
+  --nmd-input-border: #585858;
+}
